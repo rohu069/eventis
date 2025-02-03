@@ -1,6 +1,6 @@
 {
-    "name": "college_event_management_1",
-    "short_name": "college_event_management_1",
+    "name": "new_event",
+    "short_name": "new_event",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

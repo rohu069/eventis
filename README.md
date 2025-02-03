@@ -1,4 +1,4 @@
-# college_event_management_1
+# new_event
 
 A new Flutter project.
 

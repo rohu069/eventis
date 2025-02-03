@@ -3,6 +3,8 @@ import 'sign_in_screen.dart'; // Import the SignInScreen
 import 'event_details_screen.dart'; // Import the EventDetailsScreen
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -23,10 +25,26 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login Screen'),
+        title: Text('Login Screen',
+        style: TextStyle(
+          color: Color.fromARGB(255, 255, 255, 255),
+        ),
+        
+        ),
+        backgroundColor: Color.fromARGB(255, 122, 17, 17),
       ),
-      body: Padding(
+      body: Container(
         padding: EdgeInsets.all(16.0),
+         decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color.fromARGB(255, 122, 17, 17), // Dark Red
+              Color.fromARGB(255, 172, 49, 49), // Light Red
+            ],
+          ),
+        ),
         child: Form(
           key: _formKey,
           child: Column(
@@ -34,7 +52,14 @@ class _LoginScreenState extends State<LoginScreen> {
             children: <Widget>[
               TextFormField(
                 controller: _usernameController,
-                decoration: InputDecoration(labelText: 'Username'),
+                decoration: 
+                InputDecoration(labelText: 'Username',
+                filled: true,
+                fillColor: Color.fromARGB(255, 255, 255, 255),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  
+                )),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your username';
@@ -46,7 +71,12 @@ class _LoginScreenState extends State<LoginScreen> {
               TextFormField(
                 controller: _passwordController,
                 obscureText: true,
-                decoration: InputDecoration(labelText: 'Password'),
+                decoration: InputDecoration(labelText: 'Password',
+                filled: true,
+                fillColor: Color.fromARGB(255, 255, 255, 255),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                )),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your password';
@@ -74,7 +104,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     }
                   }
                 },
-                child: Text('Log In'),
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(150, 50),
+                ),
+                child: Text('Log In',),
               ),
               SizedBox(height: 16),
               TextButton(
@@ -85,7 +118,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     MaterialPageRoute(builder: (context) => SignInScreen()),
                   );
                 },
-                child: Text('New user? Sign Up'),
+                child: Text('New user? Sign Up',
+                style: TextStyle(
+                  color: Colors.white
+                ),),
               ),
             ],
           ),

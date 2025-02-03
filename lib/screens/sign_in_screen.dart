@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
+
   @override
   _SignInScreenState createState() => _SignInScreenState();
 }
@@ -33,10 +35,27 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign In'),
+        title: Text('Sign In',
+        style: TextStyle(
+          color: Color.fromARGB(255, 255, 255, 255),
+        ),
+        ),
+        backgroundColor:  Color.fromARGB(255, 122, 17, 17),
       ),
-      body: Padding(
+      body: Container(
+        // Add gradient background
+        
         padding: EdgeInsets.all(16.0),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color.fromARGB(255, 122, 17, 17), // Dark Red
+              Color.fromARGB(255, 172, 49, 49), // Light Red
+            ],
+          ),
+        ),
         child: Form(
           key: _formKey,
           child: Column(
@@ -44,7 +63,13 @@ class _SignInScreenState extends State<SignInScreen> {
             children: <Widget>[
               TextFormField(
                 controller: _nameController,
-                decoration: InputDecoration(labelText: 'Name'),
+                decoration: InputDecoration(labelText: 'Name',
+                filled: true,
+                fillColor: Color.fromARGB(255, 255, 255, 255),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your name';
@@ -55,7 +80,13 @@ class _SignInScreenState extends State<SignInScreen> {
               SizedBox(height: 16),
               TextFormField(
                 controller: _studentIdController,
-                decoration: InputDecoration(labelText: 'Student ID'),
+                decoration: InputDecoration(labelText: 'Student ID',
+                  filled: true,
+                fillColor: Color.fromARGB(255, 255, 255, 255),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your student ID';
@@ -66,7 +97,13 @@ class _SignInScreenState extends State<SignInScreen> {
               SizedBox(height: 16),
               TextFormField(
                 controller: _phoneController,
-                decoration: InputDecoration(labelText: 'Phone Number'),
+                decoration: InputDecoration(labelText: 'Phone Number',
+                  filled: true,
+                fillColor: Color.fromARGB(255, 255, 255, 255),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                ),
                 keyboardType: TextInputType.phone,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -80,7 +117,13 @@ class _SignInScreenState extends State<SignInScreen> {
               SizedBox(height: 16),
               TextFormField(
                 controller: _emailController,
-                decoration: InputDecoration(labelText: 'Email'),
+                decoration: InputDecoration(labelText: 'Email',
+                  filled: true,
+                fillColor: Color.fromARGB(255, 255, 255, 255),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                ),
                 keyboardType: TextInputType.emailAddress,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -113,6 +156,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     }
                   }
                 },
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(150, 50)
+                ),
                 child: Text('Sign Up'),
               ),
             ],

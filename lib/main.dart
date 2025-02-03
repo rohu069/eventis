@@ -24,9 +24,11 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/', // The initial screen route
       routes: {
-        '/': (context) => EventDetailsScreen(),  // Login Screen
+        '/': (context) => //LoginScreen(), 
+        EventDetailsScreen(),  // Login Screen
         '/sign_in': (context) => SignInScreen(), // Sign In Screen
-        '/event_details': (context) => LoginScreen(), // Home Screen after login
+        '/event_details': (context) => //EventDetailsScreen(), 
+        LoginScreen(), // Home Screen after login
         '/event_registration': (context) => EventRegistrationScreen(), // Event Registration Screen
         '/add_event': (context) => AddEventScreen(), // Add Event Screen for Admin
         '/admin_dashboard': (context) => AdminDashboardScreen(), // Admin Dashboard Screen
